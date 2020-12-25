@@ -30,6 +30,9 @@ export const SampleRecording = () => {
                 />
                 <Text style={[styles.SubTitle, { textDecorationLine: item.active ? 'line-through' : 'none' },
                 ]}>{item.title}</Text>
+                  <TouchableOpacity key={item.key} style={styles.logoBtnWrapper} onPress={() => removeItem(item.key)}>
+                    <Image style={styles.logoIcon} source={require('../../../assets/images/logo.png')} />
+                </TouchableOpacity>
                <TouchableOpacity key={item.key} style={styles.deleteBtnWrapper} onPress={() => removeItem(item.key)}>
                     <Image style={styles.deleteIcon} source={require('../../../assets/images/delete.png')} />
                 </TouchableOpacity>
@@ -160,5 +163,11 @@ const styles = StyleSheet.create({
         marginRight: 15,
 
     },
+    logoIcon:{
+        width: 40,
+        height: 40,
+        marginRight: 15,
+
+    }
    
 });
