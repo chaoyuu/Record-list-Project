@@ -30,7 +30,9 @@ export const SampleRecording = () => {
                 />
                 <Text style={[styles.SubTitle, { textDecorationLine: item.active ? 'line-through' : 'none' },
                 ]}>{item.title}</Text>
-                 
+                  <TouchableOpacity key={item.key} style={styles.logo} onPress={() => logoItem(item.key)}>
+                    <Image style={styles.logoIcon} source={require('../../../assets/images/logo.png')} />
+                </TouchableOpacity>
                <TouchableOpacity key={item.key} style={styles.deleteBtnWrapper} onPress={() => removeItem(item.key)}>
                     <Image style={styles.deleteIcon} source={require('../../../assets/images/delete.png')} />
                 </TouchableOpacity>
@@ -100,6 +102,7 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flex: 1,
+        backgroundColor: 'gray',
     },
     title: {
         fontSize: 20,
@@ -122,7 +125,7 @@ const styles = StyleSheet.create({
     modalContentWrapper: {
         height: '50%',
         marginTop: 'auto',
-        backgroundColor: 'green',
+        backgroundColor: 'blue',
         padding: 15,
     },
     closeIcon: {
@@ -161,5 +164,12 @@ const styles = StyleSheet.create({
         marginRight: 15,
 
     },
+    logoIcon:{
+        width: 50,
+        height: 50,
+        alignItems:'center',
+    },
+
+    
    
 });
